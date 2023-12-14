@@ -330,6 +330,18 @@
 					],
 				});
 
+				// Compute Shader
+				const WORKGROUP_SIZE = 8;
+				const simulationShaderModule = device.createShaderModule({
+					label: "Game of Life simulation shader",
+					code: `
+					@compute
+					@workgroup_size(${WORKGROUP_SIZE}, ${WORKGROUP_SIZE}) // New line
+					fn computeMain() {
+
+					}
+					`,
+				});
 				// Render update
 				const MS_IN_SECOND = 1000;
 				const FRAME_PER_SECONDS = 10;
